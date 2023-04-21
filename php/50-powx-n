@@ -1,0 +1,30 @@
+<?php
+class Solution {
+
+    /**
+     * @param Float $x
+     * @param Integer $n
+     * @return Float
+     */
+    function myPow($x, $n) {
+        if ($n == 0) {
+            return 1;
+        }
+
+        if ($n == 1) {
+            return $x;
+        }
+
+        if ($n < 0) {
+            return 1/$this->myPow($x, -$n);
+        } 
+        
+        $pow = $this->myPow($x, (int)($n/2));
+        
+        if($n%2 == 0) {
+            return $pow*$pow;
+        } else {
+            return $pow*$pow* $x;
+        }
+    }
+}
